@@ -208,6 +208,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
+    /**
+     Combines two images on top of each other
+     
+     - Parameter bottomImg: Image at the bottom
+     - Parameter topImg: Image on top
+     */
     func combineImage(bottomImg: UIImage, topImg: UIImage) -> UIImage {
         let size = bottomImg.size
         let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
