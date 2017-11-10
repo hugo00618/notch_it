@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0DFEE31FB0CBD300BC7C36 /* PhotoThumbnailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0DFEE21FB0CBD300BC7C36 /* PhotoThumbnailCell.swift */; };
+		9A32E7171FB64E9D00A9287A /* CustomPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32E7161FB64E9D00A9287A /* CustomPhotoAlbum.swift */; };
 		9A4F004D1FAE966A00A8D4D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F004C1FAE966A00A8D4D8 /* AppDelegate.swift */; };
 		9A4F004F1FAE966A00A8D4D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F004E1FAE966A00A8D4D8 /* ViewController.swift */; };
 		9A4F00521FAE966A00A8D4D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F00501FAE966A00A8D4D8 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A0DFEE21FB0CBD300BC7C36 /* PhotoThumbnailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoThumbnailCell.swift; sourceTree = "<group>"; };
+		9A32E7161FB64E9D00A9287A /* CustomPhotoAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPhotoAlbum.swift; sourceTree = "<group>"; };
 		9A4F00491FAE966A00A8D4D8 /* NotchIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotchIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4F004C1FAE966A00A8D4D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A4F004E1FAE966A00A8D4D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 			children = (
 				9A4F004C1FAE966A00A8D4D8 /* AppDelegate.swift */,
 				9A4F004E1FAE966A00A8D4D8 /* ViewController.swift */,
+				9A0DFEE21FB0CBD300BC7C36 /* PhotoThumbnailCell.swift */,
+				9A32E7161FB64E9D00A9287A /* CustomPhotoAlbum.swift */,
 				9A4F00501FAE966A00A8D4D8 /* Main.storyboard */,
 				9A4F00531FAE966A00A8D4D8 /* Assets.xcassets */,
 				9A4F00551FAE966A00A8D4D8 /* LaunchScreen.storyboard */,
@@ -259,8 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A0DFEE31FB0CBD300BC7C36 /* PhotoThumbnailCell.swift in Sources */,
 				9A4F004F1FAE966A00A8D4D8 /* ViewController.swift in Sources */,
 				9A4F004D1FAE966A00A8D4D8 /* AppDelegate.swift in Sources */,
+				9A32E7171FB64E9D00A9287A /* CustomPhotoAlbum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +435,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H25L6MP3NS;
 				INFOPLIST_FILE = NotchIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = info.hugoyu.NotchIt;
@@ -441,6 +450,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H25L6MP3NS;
 				INFOPLIST_FILE = NotchIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = info.hugoyu.NotchIt;
