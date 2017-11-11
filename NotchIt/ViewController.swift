@@ -60,6 +60,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -140,23 +142,28 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func photoLibraryDidChange(_ changeInstance: PHChange) {
         let changeDetails = changeInstance.changeDetails(for: myFetchResult)
         
-        // check if there are changes to assets, update myFetchResult and reload collection view
+        // if photo gallery has changed
         if (changeDetails != nil) {
-            
-            DispatchQueue.main.async {
+            DispatchQueue.main.async(execute: {
+                // selected indeices will get messed up, deselect all
+                self._selectedCells = []
+                self.navigationController?.setToolbarHidden(true, animated: true)
+                
+                // update data source
                 self.myFetchResult = changeDetails?.fetchResultAfterChanges
+                self.saveToAssets()
                 self.collection_photos.reloadData()
-            }
+                
+                // check if there is no screenshots
+                if (self.myFetchResult.count == 0) {
+                    
+                } else {
+                    
+                }
+                
+                //resetCachedAssets()
+            })
         }
-        
-        // check if there is no screenshots
-        if (myFetchResult.count == 0) {
-            
-        } else {
-            
-        }
-        
-        //resetCachedAssets()
     }
 
     func loadFetchResult() {
@@ -181,7 +188,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func fetchPhotos() {
         loadFetchResult()
-        saveToAssets();
+        saveToAssets()
     }
 
     @IBAction func onClickNotchIt(_ sender: Any) {
