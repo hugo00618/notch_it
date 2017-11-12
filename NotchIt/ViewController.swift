@@ -17,6 +17,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     let IPHONE_X_WIDTH_PX: CGFloat = 1125.0
     let IPHONE_X_HEIGHT_PX: CGFloat = 2436.0
     
+    let notchImage = UIImage(named: "img_notch")
+    var notchImageLeft, notchImageRight: UIImage?
+    
     // view
     @IBOutlet var collection_photos: UICollectionView!
     
@@ -60,8 +63,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,14 +88,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             withReuseIdentifier: REUSE_ID_PHOTO_CELL, for: indexPath) as! PhotoThumbnailCell
         
         // set thumbnail image of cell
-        let targetSize = getGridSize(scale: UIScreen.main.scale)
-        self.imageManager.requestImage(for: myAsset, targetSize: targetSize, contentMode: .aspectFit, options: PHImageRequestOptions(),
-                                       resultHandler: {(result, info)->Void in
+        let isPortrait = myAsset.pixelWidth < myAsset.pixelHeight
+        let gridSize = getGridSize(scale: UIScreen.main.scale, isPortrait: isPortrait)
+        self.imageManager.requestImage(for: myAsset, targetSize: gridSize, contentMode: .aspectFit, options: PHImageRequestOptions(), resultHandler: {(result, info) in
             myCell.img_thumbnail.image = result
         })
         
-        // set check icon
-        myCell.img_tick.isHidden = !myCell.isSelected
+        // set isPortrait of cell
+        myCell.isPortrait = isPortrait
+        
+        // set cell selection view
+        myCell.updateSelectionView()
         
         return myCell
     }
@@ -110,7 +114,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let myCell = collectionView.cellForItem(at: indexPath) as! PhotoThumbnailCell
         myCell.isSelected = true
         collectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionViewScrollPosition.bottom)
-        myCell.img_tick.isHidden = false
+        myCell.updateSelectionView()
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -120,7 +124,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // update cell
         let myCell = collectionView.cellForItem(at: indexPath) as! PhotoThumbnailCell
         myCell.isSelected = false
-        myCell.img_tick.isHidden = true
+        myCell.updateSelectionView()
         
         // hide toolbar if no photos selected
         if (_selectedCells.count == 0) {
@@ -129,12 +133,22 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return getGridSize(scale: 1)
+        let myAsset = assets[indexPath.row]
+        let isPortrait = myAsset.pixelWidth < myAsset.pixelHeight
+        return getGridSize(scale: 1, isPortrait: isPortrait)
     }
     
-    func getGridSize(scale: CGFloat) -> CGSize {
-        let width = (view.frame.width) / 2.0 - gridSpacing
-        let height = IPHONE_X_HEIGHT_PX / IPHONE_X_WIDTH_PX * width
+    func getGridSize(scale: CGFloat, isPortrait: Bool) -> CGSize {
+        var width, height: CGFloat
+        
+        if (isPortrait) { // two portraits per row
+            width = (view.frame.width) / 2.0 - gridSpacing
+            height = IPHONE_X_HEIGHT_PX / IPHONE_X_WIDTH_PX * width
+        } else { // one landscape per row
+            width = view.frame.width
+            height = IPHONE_X_WIDTH_PX / IPHONE_X_HEIGHT_PX  * width
+        }
+        
         return CGSize(width: width * scale, height: height * scale)
     }
     
@@ -178,8 +192,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         myFetchResult.enumerateObjects { (obj: AnyObject, idx: Int, stop: UnsafeMutablePointer<ObjCBool>) in
             if let asset = obj as? PHAsset {
                 // filter out non-iPhone X scrrenshots
-                if (CGFloat(asset.pixelWidth) == self.IPHONE_X_WIDTH_PX &&
-                    CGFloat(asset.pixelHeight) == self.IPHONE_X_HEIGHT_PX) {
+                if ((CGFloat(asset.pixelWidth) == self.IPHONE_X_WIDTH_PX &&
+                    CGFloat(asset.pixelHeight) == self.IPHONE_X_HEIGHT_PX) ||
+                    (CGFloat(asset.pixelWidth) == self.IPHONE_X_HEIGHT_PX &&
+                        CGFloat(asset.pixelHeight) == self.IPHONE_X_WIDTH_PX)){
                     self.assets.append(asset)
                 }
             }
@@ -203,11 +219,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             // request original size
             let idx = (indexPath as! IndexPath).row
             let myAsset = assets[idx]
+            let myCell = collection_photos.cellForItem(at: indexPath as! IndexPath) as! PhotoThumbnailCell
             
-            self.imageManager.requestImage(for: myAsset, targetSize: targetSize, contentMode: .aspectFit, options: requestOptions, resultHandler: {(result, info)->Void in
+            self.imageManager.requestImage(for: myAsset, targetSize: targetSize, contentMode: .aspectFit, options: requestOptions, resultHandler: {(result, info) in
                 // combine image
-                let topImg = UIImage(named: "img_notch")
-                let combinedImg = self.combineImage(bottomImg: result!, topImg: topImg!)
+                // get orientation
+                var myNotchOrientation = UIImageOrientation.up
+                if (!myCell.isPortrait) {
+                    myNotchOrientation = myCell.notchOrientation
+                }
+                let combinedImg = self.combineImage(bottomImg: result!, orientation: myNotchOrientation)
                 
                 // write to album
                 CustomPhotoAlbum.saveImage(image: combinedImg)
@@ -216,19 +237,41 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     /**
-     Combines two images on top of each other
+     Add notch to bottomImg
      
      - Parameter bottomImg: Image at the bottom
-     - Parameter topImg: Image on top
+     - Parameter orientation: Orientation of the notch
      */
-    func combineImage(bottomImg: UIImage, topImg: UIImage) -> UIImage {
+    func combineImage(bottomImg: UIImage, orientation: UIImageOrientation) -> UIImage {
+        var topImg: UIImage?
+        
+        switch (orientation) {
+        case .up:
+            topImg = notchImage
+            break
+        case .left:
+            if (notchImageLeft == nil) {
+                notchImageLeft = UIImage(cgImage: notchImage!.cgImage!, scale: 1.0, orientation: .left)
+            }
+            topImg = notchImageLeft
+            break
+        case .right:
+            if (notchImageRight == nil) {
+                notchImageRight = UIImage(cgImage: notchImage!.cgImage!, scale: 1.0, orientation: .right)
+            }
+            topImg = notchImageRight
+            break
+        default:
+            break
+        }
+        
         let size = bottomImg.size
         let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
         
         // draw images in order
         bottomImg.draw(in: rect)
-        topImg.draw(in: rect)
+        topImg!.draw(in: rect)
         
         let newImg:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()

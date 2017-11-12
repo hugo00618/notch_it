@@ -48,17 +48,24 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="PZa-pc-fMH" customClass="PhotoThumbnailCell" customModule="NotchIt" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="240"/>
+                                        <rect key="frame" x="93.666666666666671" y="0.0" width="187.5" height="406"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="160" height="240"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="406"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C7U-T4-1Z7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="240"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="188" height="406"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img_notch" translatesAutoresizingMaskIntoConstraints="NO" id="ufQ-NW-geU">
+                                                    <rect key="frame" x="-1" y="0.0" width="188" height="406"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_tick" translatesAutoresizingMaskIntoConstraints="NO" id="jit-CT-6da">
-                                                    <rect key="frame" x="120" y="200" width="28" height="28"/>
+                                                    <rect key="frame" x="148" y="366" width="28" height="28"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_rotate" translatesAutoresizingMaskIntoConstraints="NO" id="S0o-fC-d8L">
+                                                    <rect key="frame" x="73.666666666666671" y="183" width="40" height="40"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -66,12 +73,16 @@
                                             <constraint firstAttribute="trailing" secondItem="jit-CT-6da" secondAttribute="trailing" constant="12" id="BUK-So-tV7"/>
                                             <constraint firstItem="C7U-T4-1Z7" firstAttribute="leading" secondItem="PZa-pc-fMH" secondAttribute="leading" id="GLG-Py-B9Y"/>
                                             <constraint firstAttribute="trailing" secondItem="C7U-T4-1Z7" secondAttribute="trailing" id="HQ9-0a-UmX"/>
+                                            <constraint firstItem="S0o-fC-d8L" firstAttribute="centerX" secondItem="PZa-pc-fMH" secondAttribute="centerX" id="Je9-cv-wtB"/>
                                             <constraint firstItem="C7U-T4-1Z7" firstAttribute="top" secondItem="PZa-pc-fMH" secondAttribute="top" id="Xwx-Ok-FDh"/>
+                                            <constraint firstItem="S0o-fC-d8L" firstAttribute="centerY" secondItem="PZa-pc-fMH" secondAttribute="centerY" id="bTz-6h-0SM"/>
                                             <constraint firstAttribute="bottom" secondItem="jit-CT-6da" secondAttribute="bottom" constant="12" id="rNx-db-lhm"/>
                                             <constraint firstAttribute="bottom" secondItem="C7U-T4-1Z7" secondAttribute="bottom" id="xxn-Se-r8P"/>
                                         </constraints>
-                                        <size key="customSize" width="160" height="240"/>
+                                        <size key="customSize" width="187.5" height="406"/>
                                         <connections>
+                                            <outlet property="img_notch" destination="ufQ-NW-geU" id="q5D-QI-TdQ"/>
+                                            <outlet property="img_rotate" destination="S0o-fC-d8L" id="pYF-0F-gXK"/>
                                             <outlet property="img_thumbnail" destination="C7U-T4-1Z7" id="rSI-4q-Cx9"/>
                                             <outlet property="img_tick" destination="jit-CT-6da" id="SYx-gS-1tq"/>
                                         </connections>
@@ -105,10 +116,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nMr-Dz-Ejj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="649" y="1009"/>
+            <point key="canvasLocation" x="648.79999999999995" y="1008.6206896551724"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ic_rotate" width="40" height="40"/>
         <image name="ic_tick" width="28" height="28"/>
+        <image name="img_notch" width="1125" height="2436"/>
     </resources>
 </document>
