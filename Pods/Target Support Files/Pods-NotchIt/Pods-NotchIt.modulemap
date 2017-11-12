@@ -1,0 +1,6 @@
+framework module Pods_NotchIt {
+  umbrella header "Pods-NotchIt-umbrella.h"
+
+  export *
+  module * { export * }
+}

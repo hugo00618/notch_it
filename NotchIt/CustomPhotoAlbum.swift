@@ -54,7 +54,7 @@ class CustomPhotoAlbum {
      
      - Parameter image: The image to be saved
      */
-    static func saveImage(image: UIImage) {
+    static func saveImage(image: UIImage, completionHandler: ((Bool, Error?) -> Void)? = nil) {
         if (!fetchAssetCollectionForAlbum()) { // album not exist
             createAlbum(image: image)
             return
@@ -65,7 +65,7 @@ class CustomPhotoAlbum {
             let assetPlaceholder = assetChangeRequest.placeholderForCreatedAsset
             let albumChangeRequest = PHAssetCollectionChangeRequest(for: self.assetCollection)
             albumChangeRequest?.addAssets([assetPlaceholder] as NSArray)
-        }, completionHandler: nil)
+        }, completionHandler: completionHandler)
     }
     
     

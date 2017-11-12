@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02B8207282AC610290CCC3AA /* Pods_NotchIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B71DAA475036E8A86861577 /* Pods_NotchIt.framework */; };
+		7DF314858826E2152DF70CF8 /* Pods_NotchItTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B9097E9DA5550AE3CACF50 /* Pods_NotchItTests.framework */; };
 		9A0DFEE31FB0CBD300BC7C36 /* PhotoThumbnailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0DFEE21FB0CBD300BC7C36 /* PhotoThumbnailCell.swift */; };
 		9A32E7171FB64E9D00A9287A /* CustomPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32E7161FB64E9D00A9287A /* CustomPhotoAlbum.swift */; };
 		9A4F004D1FAE966A00A8D4D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F004C1FAE966A00A8D4D8 /* AppDelegate.swift */; };
@@ -16,6 +18,7 @@
 		9A4F00571FAE966A00A8D4D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F00551FAE966A00A8D4D8 /* LaunchScreen.storyboard */; };
 		9A4F00621FAE966A00A8D4D8 /* NotchItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F00611FAE966A00A8D4D8 /* NotchItTests.swift */; };
 		9A4F006D1FAE966A00A8D4D8 /* NotchItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F006C1FAE966A00A8D4D8 /* NotchItUITests.swift */; };
+		AF160F31B151812E754B7AAC /* Pods_NotchItUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACECA2B59A758B1B2525F091 /* Pods_NotchItUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +39,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		178A33D3A4AA5F516EB02D27 /* Pods-NotchItUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotchItUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NotchItUITests/Pods-NotchItUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1860E203EBC79616E86FECF2 /* Pods-NotchItUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotchItUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotchItUITests/Pods-NotchItUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1B71DAA475036E8A86861577 /* Pods_NotchIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotchIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		747BA0DAA84ACB2624DD20CE /* Pods-NotchItTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotchItTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotchItTests/Pods-NotchItTests.release.xcconfig"; sourceTree = "<group>"; };
 		9A0DFEE21FB0CBD300BC7C36 /* PhotoThumbnailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoThumbnailCell.swift; sourceTree = "<group>"; };
 		9A32E7161FB64E9D00A9287A /* CustomPhotoAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPhotoAlbum.swift; sourceTree = "<group>"; };
+		9A32E71F1FB7E31F00A9287A /* NotchIt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NotchIt-Bridging-Header.h"; sourceTree = "<group>"; };
+		9A32E7211FB7E3A400A9287A /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A32E7231FB7E43A00A9287A /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4F00491FAE966A00A8D4D8 /* NotchIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotchIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4F004C1FAE966A00A8D4D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A4F004E1FAE966A00A8D4D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +61,11 @@
 		9A4F00681FAE966A00A8D4D8 /* NotchItUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotchItUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4F006C1FAE966A00A8D4D8 /* NotchItUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchItUITests.swift; sourceTree = "<group>"; };
 		9A4F006E1FAE966A00A8D4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A63B86E9F3E3F04AEA168453 /* Pods-NotchItTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotchItTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NotchItTests/Pods-NotchItTests.debug.xcconfig"; sourceTree = "<group>"; };
+		ACECA2B59A758B1B2525F091 /* Pods_NotchItUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotchItUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4B9097E9DA5550AE3CACF50 /* Pods_NotchItTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotchItTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E10A3EC2C7FA8306E0807447 /* Pods-NotchIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotchIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NotchIt/Pods-NotchIt.debug.xcconfig"; sourceTree = "<group>"; };
+		F08A08618B31AD2EF7920E70 /* Pods-NotchIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotchIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotchIt/Pods-NotchIt.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02B8207282AC610290CCC3AA /* Pods_NotchIt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DF314858826E2152DF70CF8 /* Pods_NotchItTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +89,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF160F31B151812E754B7AAC /* Pods_NotchItUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4630E5A22A364A0D1F99A00F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A32E7231FB7E43A00A9287A /* MBProgressHUD.framework */,
+				9A32E7211FB7E3A400A9287A /* MBProgressHUD.framework */,
+				1B71DAA475036E8A86861577 /* Pods_NotchIt.framework */,
+				B4B9097E9DA5550AE3CACF50 /* Pods_NotchItTests.framework */,
+				ACECA2B59A758B1B2525F091 /* Pods_NotchItUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8305CA0F81D267F3C25FF0DE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E10A3EC2C7FA8306E0807447 /* Pods-NotchIt.debug.xcconfig */,
+				F08A08618B31AD2EF7920E70 /* Pods-NotchIt.release.xcconfig */,
+				A63B86E9F3E3F04AEA168453 /* Pods-NotchItTests.debug.xcconfig */,
+				747BA0DAA84ACB2624DD20CE /* Pods-NotchItTests.release.xcconfig */,
+				178A33D3A4AA5F516EB02D27 /* Pods-NotchItUITests.debug.xcconfig */,
+				1860E203EBC79616E86FECF2 /* Pods-NotchItUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9A4F00401FAE966900A8D4D8 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +128,8 @@
 				9A4F00601FAE966A00A8D4D8 /* NotchItTests */,
 				9A4F006B1FAE966A00A8D4D8 /* NotchItUITests */,
 				9A4F004A1FAE966A00A8D4D8 /* Products */,
+				8305CA0F81D267F3C25FF0DE /* Pods */,
+				4630E5A22A364A0D1F99A00F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +154,7 @@
 				9A4F00531FAE966A00A8D4D8 /* Assets.xcassets */,
 				9A4F00551FAE966A00A8D4D8 /* LaunchScreen.storyboard */,
 				9A4F00581FAE966A00A8D4D8 /* Info.plist */,
+				9A32E71F1FB7E31F00A9287A /* NotchIt-Bridging-Header.h */,
 			);
 			path = NotchIt;
 			sourceTree = "<group>";
@@ -138,9 +184,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A4F00711FAE966A00A8D4D8 /* Build configuration list for PBXNativeTarget "NotchIt" */;
 			buildPhases = (
+				825C350DB0BC5F06FE402038 /* [CP] Check Pods Manifest.lock */,
 				9A4F00451FAE966900A8D4D8 /* Sources */,
 				9A4F00461FAE966900A8D4D8 /* Frameworks */,
 				9A4F00471FAE966900A8D4D8 /* Resources */,
+				3D75B325CD63CE2E59FD98E1 /* [CP] Embed Pods Frameworks */,
+				7C9844E128AA152735EF4790 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,9 +204,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A4F00741FAE966A00A8D4D8 /* Build configuration list for PBXNativeTarget "NotchItTests" */;
 			buildPhases = (
+				01474849628ED8FA2D39EE96 /* [CP] Check Pods Manifest.lock */,
 				9A4F00591FAE966A00A8D4D8 /* Sources */,
 				9A4F005A1FAE966A00A8D4D8 /* Frameworks */,
 				9A4F005B1FAE966A00A8D4D8 /* Resources */,
+				F6518AE595E179F1CDDEC289 /* [CP] Embed Pods Frameworks */,
+				235049C5D483656F6343CC83 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -173,9 +225,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A4F00771FAE966A00A8D4D8 /* Build configuration list for PBXNativeTarget "NotchItUITests" */;
 			buildPhases = (
+				E1D86221BB0FE26B3A703E74 /* [CP] Check Pods Manifest.lock */,
 				9A4F00641FAE966A00A8D4D8 /* Sources */,
 				9A4F00651FAE966A00A8D4D8 /* Frameworks */,
 				9A4F00661FAE966A00A8D4D8 /* Resources */,
+				D3971086602577067ADAB4AA /* [CP] Embed Pods Frameworks */,
+				6B77E21FFF66541FC3B621FB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,6 +314,156 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01474849628ED8FA2D39EE96 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NotchItTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		235049C5D483656F6343CC83 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NotchItTests/Pods-NotchItTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D75B325CD63CE2E59FD98E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NotchIt/Pods-NotchIt-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NotchIt/Pods-NotchIt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B77E21FFF66541FC3B621FB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NotchItUITests/Pods-NotchItUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C9844E128AA152735EF4790 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NotchIt/Pods-NotchIt-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		825C350DB0BC5F06FE402038 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NotchIt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3971086602577067ADAB4AA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NotchItUITests/Pods-NotchItUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1D86221BB0FE26B3A703E74 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NotchItUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6518AE595E179F1CDDEC289 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NotchItTests/Pods-NotchItTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9A4F00451FAE966900A8D4D8 /* Sources */ = {
@@ -432,14 +637,17 @@
 		};
 		9A4F00721FAE966A00A8D4D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E10A3EC2C7FA8306E0807447 /* Pods-NotchIt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H25L6MP3NS;
 				INFOPLIST_FILE = NotchIt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = info.hugoyu.NotchIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -447,14 +655,17 @@
 		};
 		9A4F00731FAE966A00A8D4D8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F08A08618B31AD2EF7920E70 /* Pods-NotchIt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H25L6MP3NS;
 				INFOPLIST_FILE = NotchIt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = info.hugoyu.NotchIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -462,6 +673,7 @@
 		};
 		9A4F00751FAE966A00A8D4D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A63B86E9F3E3F04AEA168453 /* Pods-NotchItTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -478,6 +690,7 @@
 		};
 		9A4F00761FAE966A00A8D4D8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 747BA0DAA84ACB2624DD20CE /* Pods-NotchItTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -494,6 +707,7 @@
 		};
 		9A4F00781FAE966A00A8D4D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 178A33D3A4AA5F516EB02D27 /* Pods-NotchItUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -509,6 +723,7 @@
 		};
 		9A4F00791FAE966A00A8D4D8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1860E203EBC79616E86FECF2 /* Pods-NotchItUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

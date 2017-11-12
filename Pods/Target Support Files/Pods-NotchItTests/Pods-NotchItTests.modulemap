@@ -1,0 +1,6 @@
+framework module Pods_NotchItTests {
+  umbrella header "Pods-NotchItTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

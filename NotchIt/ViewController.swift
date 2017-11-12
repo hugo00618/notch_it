@@ -8,20 +8,25 @@
 
 import UIKit
 import Photos
+import MBProgressHUD
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver {
     
     let REUSE_ID_PHOTO_CELL = "PhotoCell"
     let SEGUE_ID_SHOW_PHOTO_DETAILS = "ShowPhotoDetails"
     
-    let IPHONE_X_WIDTH_PX: CGFloat = 1125.0
-    let IPHONE_X_HEIGHT_PX: CGFloat = 2436.0
+    static let IPHONE_X_WIDTH_PX: CGFloat = 1125.0
+    static let IPHONE_X_HEIGHT_PX: CGFloat = 2436.0
+    
+    let ORIGINAL_IMAGE_TARGET_SIZE_PORTRAIT = CGSize(width: IPHONE_X_WIDTH_PX, height: IPHONE_X_HEIGHT_PX)
+    let ORIGINAL_IMAGE_TARGET_SIZE_LANDSCAPE = CGSize(width: IPHONE_X_HEIGHT_PX, height: IPHONE_X_WIDTH_PX)
     
     let notchImage = UIImage(named: "img_notch")
     var notchImageLeft, notchImageRight: UIImage?
     
     // view
     @IBOutlet var collection_photos: UICollectionView!
+    var hud: MBProgressHUD!
     
     // photo assets
     var myFetchResult: PHFetchResult<PHAsset>!
@@ -31,7 +36,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     // view params
     var gridSpacing: CGFloat!
-    var _selectedCells : NSMutableArray = []
+    var selectedCells = [IndexPath: PhotoThumbnailCell]()
     
     override func awakeFromNib() {
         // init imageManager
@@ -105,39 +110,35 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView,
                                  didSelectItemAt indexPath: IndexPath) {
+        let myCell = collection_photos.cellForItem(at: indexPath) as! PhotoThumbnailCell
+        
         // show toolbar
         self.navigationController?.setToolbarHidden(false, animated: true)
         
-        // _selectedCells
-        self._selectedCells.add(indexPath)
+        // update model
+        selectedCells[indexPath] = myCell
         
-        // update cell
-        selectCell(indexPath: indexPath)
-    }
-    
-    func selectCell(indexPath: IndexPath) {
-        let myCell = collection_photos.cellForItem(at: indexPath) as! PhotoThumbnailCell
-        myCell.isSelected = true
+        // update collection view
         collection_photos.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionViewScrollPosition.bottom)
+        
+        // update cell view
+        myCell.isSelected = true
         myCell.updateSelectionView()
     }
     
     func collectionView(_ collectionView: UICollectionView,
                                  didDeselectItemAt indexPath: IndexPath) {
-        // _selectedCells
-        _selectedCells.remove(indexPath)
+        let myCell = collection_photos.cellForItem(at: indexPath) as! PhotoThumbnailCell
         
-        // update cell
-        deselectCell(indexPath: indexPath)
+        // _selectedCells
+        selectedCells.removeValue(forKey: indexPath)
         
         // hide toolbar if no photos selected
-        if (_selectedCells.count == 0) {
+        if (selectedCells.count == 0) {
             self.navigationController?.setToolbarHidden(true, animated: true)
         }
-    }
-    
-    func deselectCell(indexPath: IndexPath) {
-        let myCell = collection_photos.cellForItem(at: indexPath) as! PhotoThumbnailCell
+        
+        // update cell
         myCell.isSelected = false
         myCell.updateSelectionView()
     }
@@ -153,10 +154,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         if (isPortrait) { // two portraits per row
             width = (view.frame.width) / 2.0 - gridSpacing
-            height = IPHONE_X_HEIGHT_PX / IPHONE_X_WIDTH_PX * width
+            height = ViewController.IPHONE_X_HEIGHT_PX / ViewController.IPHONE_X_WIDTH_PX * width
         } else { // one landscape per row
             width = view.frame.width
-            height = IPHONE_X_WIDTH_PX / IPHONE_X_HEIGHT_PX  * width
+            height = ViewController.IPHONE_X_WIDTH_PX / ViewController.IPHONE_X_HEIGHT_PX  * width
         }
         
         return CGSize(width: width * scale, height: height * scale)
@@ -201,10 +202,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         myFetchResult.enumerateObjects { (obj: AnyObject, idx: Int, stop: UnsafeMutablePointer<ObjCBool>) in
             if let asset = obj as? PHAsset {
                 // filter out non-iPhone X scrrenshots
-                if ((CGFloat(asset.pixelWidth) == self.IPHONE_X_WIDTH_PX &&
-                    CGFloat(asset.pixelHeight) == self.IPHONE_X_HEIGHT_PX) ||
-                    (CGFloat(asset.pixelWidth) == self.IPHONE_X_HEIGHT_PX &&
-                        CGFloat(asset.pixelHeight) == self.IPHONE_X_WIDTH_PX)){
+                if ((CGFloat(asset.pixelWidth) == ViewController.IPHONE_X_WIDTH_PX &&
+                    CGFloat(asset.pixelHeight) == ViewController.IPHONE_X_HEIGHT_PX) ||
+                    (CGFloat(asset.pixelWidth) == ViewController.IPHONE_X_HEIGHT_PX &&
+                        CGFloat(asset.pixelHeight) == ViewController.IPHONE_X_WIDTH_PX)){
                     self.assets.append(asset)
                 }
             }
@@ -217,39 +218,61 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
     @IBAction func onClickNotchIt(_ sender: Any) {
-        // TODO: show loading HUD
         
-        // set image request params
-        let targetSize = CGSize(width: IPHONE_X_WIDTH_PX, height: IPHONE_X_HEIGHT_PX)
-        let requestOptions = PHImageRequestOptions()
-        requestOptions.isSynchronous = true
-        // add notch to each of the selected cell
-        for indexPath in _selectedCells {
-            // request original size
-            let idx = (indexPath as! IndexPath).row
-            let myAsset = assets[idx]
-            let myCell = collection_photos.cellForItem(at: indexPath as! IndexPath) as! PhotoThumbnailCell
+        // show saving HUD
+        showPhotosSavingHUD()
+        
+        // do work
+        DispatchQueue.global(qos: .userInitiated).async {
+            // sort keys
+            let keys = Array(self.selectedCells.keys).sorted()
             
-            self.imageManager.requestImage(for: myAsset, targetSize: targetSize, contentMode: .aspectFit, options: requestOptions, resultHandler: {(result, info) in
-                // combine image
-                // get orientation
+            // request options
+            let requestOptions = PHImageRequestOptions()
+            requestOptions.isSynchronous = true
+            
+            // add notch to each of the selected image
+            for myIndexPath in keys {
+                let assetIndex = myIndexPath.row
+                let myAsset = self.assets[assetIndex]
+                let myCell = self.selectedCells[myIndexPath]!
+                
+                // get orientation for notch position and target size
                 var myNotchOrientation = UIImageOrientation.up
+                var myTargetSize = self.ORIGINAL_IMAGE_TARGET_SIZE_PORTRAIT
                 if (!myCell.isPortrait) {
                     myNotchOrientation = myCell.notchOrientation
+                    myTargetSize = self.ORIGINAL_IMAGE_TARGET_SIZE_LANDSCAPE
                 }
-                let combinedImg = self.combineImage(bottomImg: result!, orientation: myNotchOrientation)
                 
-                // write to album
-                CustomPhotoAlbum.saveImage(image: combinedImg)
-                
-                // TODO: update HUD progress
-            })
+                // request original size
+                self.imageManager.requestImage(for: myAsset, targetSize: myTargetSize, contentMode: .aspectFit, options: requestOptions, resultHandler: {(result, info) in
+                    // combine image
+                    let combinedImg = self.combineImage(bottomImg: result!, orientation: myNotchOrientation)
+                    
+                    // write to album
+                    CustomPhotoAlbum.saveImage(image: combinedImg, completionHandler: {(success, error) in
+                        // update HUD progress
+                        DispatchQueue.main.async(execute: {
+                            if (self.hud != nil && self.hud.mode == .annularDeterminate) {
+                                self.hud.progress += 1.0 / Float(self.selectedCells.count)
+                            }
+                            
+                            if (self.hud.progress == 1) { // finished
+                                self.hud.hide(animated: true)
+                                
+                                // deselect all cells
+                                self.deselectAll()
+                                
+                                // show done HUD
+                                self.showPhotosSavedHUD()
+                            }
+                        })
+                    })
+                    
+                })
+            }
         }
-        
-        // TODO: show done HUD
-        
-        // deselect all cells
-        deselectAll()
     }
     
     /**
@@ -296,16 +319,53 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func deselectAll() {
-        // _selectedCells
-        self._selectedCells = []
-        
         // tool bar
         self.navigationController?.setToolbarHidden(true, animated: true)
         
         // update cells
         for indexPath in collection_photos.indexPathsForSelectedItems! {
-            deselectCell(indexPath: indexPath)
+            collection_photos.deselectItem(at: indexPath, animated: false)
         }
+        for (_, cell) in selectedCells {
+            cell.updateSelectionView()
+        }
+        
+        // model
+        self.selectedCells.removeAll()
     }
+    
+    func showPhotosSavingHUD() {
+        // construct HUD
+        hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.label.text = "Saving..."
+        hud.mode = .annularDeterminate
+    }
+    
+    func showPhotosSavedHUD() {
+        // construct HUD
+        hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.mode = .customView
+        hud.label.text = "Done"
+        
+        // add icon
+        let icon = UIImage(named: "ic_done")
+        hud.customView = UIImageView(image: icon)
+        
+        // Looks a bit nicer if we make it square.
+        hud.isSquare = true;
+        
+        // automatically dismissed after 2 seconds
+        hud.hide(animated: true, afterDelay: 2.0)
+        
+        // add a gesture recoginer to dismiss the overlay on any tap
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.onTapAnywhere))
+        hud!.addGestureRecognizer(gestureRecognizer)
+    }
+     
+    @objc func onTapAnywhere(gestureRecognizer: UIGestureRecognizer) {
+        if (hud != nil) {
+            hud!.hide(animated: true)
+        }
+     }
 }
 
