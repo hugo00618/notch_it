@@ -18,13 +18,13 @@ class CustomPhotoAlbum {
      
      - Parameter image: The image to be saved
      */
-    static func createAlbum(image: UIImage) {
+    static func createAlbum(image: UIImage, completionHandler: @escaping (Bool, Error?) -> Void) {
         PHPhotoLibrary.shared().performChanges({
             PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: CustomPhotoAlbum.albumName)
         }) { success, _ in
             if success {
                 fetchAssetCollectionForAlbum()
-                saveImage(image: image)
+                saveImage(image: image, completionHandler: completionHandler)
             }
         }
     }
@@ -54,9 +54,9 @@ class CustomPhotoAlbum {
      
      - Parameter image: The image to be saved
      */
-    static func saveImage(image: UIImage, completionHandler: ((Bool, Error?) -> Void)? = nil) {
+    static func saveImage(image: UIImage, completionHandler: @escaping (Bool, Error?) -> Void) {
         if (!fetchAssetCollectionForAlbum()) { // album not exist
-            createAlbum(image: image)
+            createAlbum(image: image, completionHandler: completionHandler)
             return
         }
         
