@@ -26,6 +26,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     // view
     @IBOutlet var collection_photos: UICollectionView!
+    @IBOutlet weak var label_noPhotos: UILabel!
     var hud: MBProgressHUD!
     
     // photo assets
@@ -38,17 +39,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var gridSpacing: CGFloat!
     var selectedCells = [IndexPath: PhotoThumbnailCell]()
     
-    override func awakeFromNib() {
-        // init imageManager
-        imageManager = PHCachingImageManager()
-//        resetCachedAssets()
-        
-        // fetch photos
-        fetchPhotos()
-        
-        PHPhotoLibrary.shared().register(self)
-    }
-    
     deinit {
         PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
@@ -56,6 +46,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // collection view
         collection_photos.allowsMultipleSelection = true
         collection_photos.delegate = self
         collection_photos.dataSource = self
@@ -64,6 +55,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         // hide tool bar
         self.navigationController?.setToolbarHidden(true, animated: false)
+        
+        // init imageManager
+        imageManager = PHCachingImageManager()
+        //        resetCachedAssets()
+        PHPhotoLibrary.shared().register(self)
+        
+        // fetch photos
+        fetchPhotos()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -176,14 +175,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 // update data source
                 self.myFetchResult = changeDetails?.fetchResultAfterChanges
                 self.saveToAssets()
-                self.collection_photos.reloadData()
-                
-                // check if there is no screenshots
-                if (self.myFetchResult.count == 0) {
-                    
-                } else {
-                    
-                }
                 
                 //resetCachedAssets()
             })
@@ -199,6 +190,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func saveToAssets() {
         assets = [PHAsset]()
+        let totalCount = myFetchResult.count
+        
+        // go update view if fetch result is empty
+        if (totalCount == 0) {
+            updateView()
+        }
+        
+        // enumerate
+        var enumeratedCount = 0
         myFetchResult.enumerateObjects { (obj: AnyObject, idx: Int, stop: UnsafeMutablePointer<ObjCBool>) in
             if let asset = obj as? PHAsset {
                 // filter out non-iPhone X scrrenshots
@@ -208,7 +208,23 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         CGFloat(asset.pixelHeight) == ViewController.IPHONE_X_WIDTH_PX)){
                     self.assets.append(asset)
                 }
+                
+                enumeratedCount += 1
+                if (enumeratedCount == totalCount) { // enumeration finished
+                    self.updateView()
+                }
             }
+        }
+    }
+    
+    func updateView() {
+        if (assets.isEmpty) { // no iPhone X screenshot found
+            collection_photos.isHidden = true
+            label_noPhotos.isHidden = false
+        } else {
+            collection_photos.isHidden = false
+            label_noPhotos.isHidden = true
+            collection_photos.reloadData()
         }
     }
     
