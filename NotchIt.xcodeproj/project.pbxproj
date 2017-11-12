@@ -48,7 +48,7 @@
 		9A32E71F1FB7E31F00A9287A /* NotchIt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NotchIt-Bridging-Header.h"; sourceTree = "<group>"; };
 		9A32E7211FB7E3A400A9287A /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A32E7231FB7E43A00A9287A /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A4F00491FAE966A00A8D4D8 /* NotchIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotchIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A4F00491FAE966A00A8D4D8 /* Notch It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notch It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4F004C1FAE966A00A8D4D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A4F004E1FAE966A00A8D4D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9A4F00511FAE966A00A8D4D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		9A4F004A1FAE966A00A8D4D8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A4F00491FAE966A00A8D4D8 /* NotchIt.app */,
+				9A4F00491FAE966A00A8D4D8 /* Notch It.app */,
 				9A4F005D1FAE966A00A8D4D8 /* NotchItTests.xctest */,
 				9A4F00681FAE966A00A8D4D8 /* NotchItUITests.xctest */,
 			);
@@ -180,9 +180,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9A4F00481FAE966900A8D4D8 /* NotchIt */ = {
+		9A4F00481FAE966900A8D4D8 /* Notch It */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9A4F00711FAE966A00A8D4D8 /* Build configuration list for PBXNativeTarget "NotchIt" */;
+			buildConfigurationList = 9A4F00711FAE966A00A8D4D8 /* Build configuration list for PBXNativeTarget "Notch It" */;
 			buildPhases = (
 				825C350DB0BC5F06FE402038 /* [CP] Check Pods Manifest.lock */,
 				9A4F00451FAE966900A8D4D8 /* Sources */,
@@ -195,9 +195,9 @@
 			);
 			dependencies = (
 			);
-			name = NotchIt;
+			name = "Notch It";
 			productName = NotchIt;
-			productReference = 9A4F00491FAE966A00A8D4D8 /* NotchIt.app */;
+			productReference = 9A4F00491FAE966A00A8D4D8 /* Notch It.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9A4F005C1FAE966A00A8D4D8 /* NotchItTests */ = {
@@ -281,7 +281,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9A4F00481FAE966900A8D4D8 /* NotchIt */,
+				9A4F00481FAE966900A8D4D8 /* Notch It */,
 				9A4F005C1FAE966A00A8D4D8 /* NotchItTests */,
 				9A4F00671FAE966A00A8D4D8 /* NotchItUITests */,
 			);
@@ -498,12 +498,12 @@
 /* Begin PBXTargetDependency section */
 		9A4F005F1FAE966A00A8D4D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9A4F00481FAE966900A8D4D8 /* NotchIt */;
+			target = 9A4F00481FAE966900A8D4D8 /* Notch It */;
 			targetProxy = 9A4F005E1FAE966A00A8D4D8 /* PBXContainerItemProxy */;
 		};
 		9A4F006A1FAE966A00A8D4D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9A4F00481FAE966900A8D4D8 /* NotchIt */;
+			target = 9A4F00481FAE966900A8D4D8 /* Notch It */;
 			targetProxy = 9A4F00691FAE966A00A8D4D8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -749,7 +749,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9A4F00711FAE966A00A8D4D8 /* Build configuration list for PBXNativeTarget "NotchIt" */ = {
+		9A4F00711FAE966A00A8D4D8 /* Build configuration list for PBXNativeTarget "Notch It" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9A4F00721FAE966A00A8D4D8 /* Debug */,

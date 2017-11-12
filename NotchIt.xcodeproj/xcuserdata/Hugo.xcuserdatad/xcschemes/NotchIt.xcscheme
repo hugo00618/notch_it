@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9A4F00481FAE966900A8D4D8"
-               BuildableName = "NotchIt.app"
-               BlueprintName = "NotchIt"
+               BuildableName = "Notch It.app"
+               BlueprintName = "Notch It"
                ReferencedContainer = "container:NotchIt.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -54,8 +54,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9A4F00481FAE966900A8D4D8"
-            BuildableName = "NotchIt.app"
-            BlueprintName = "NotchIt"
+            BuildableName = "Notch It.app"
+            BlueprintName = "Notch It"
             ReferencedContainer = "container:NotchIt.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -78,8 +78,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9A4F00481FAE966900A8D4D8"
-            BuildableName = "NotchIt.app"
-            BlueprintName = "NotchIt"
+            BuildableName = "Notch It.app"
+            BlueprintName = "Notch It"
             ReferencedContainer = "container:NotchIt.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -97,8 +97,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9A4F00481FAE966900A8D4D8"
-            BuildableName = "NotchIt.app"
-            BlueprintName = "NotchIt"
+            BuildableName = "Notch It.app"
+            BlueprintName = "Notch It"
             ReferencedContainer = "container:NotchIt.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
