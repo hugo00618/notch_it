@@ -108,28 +108,38 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // show toolbar
         self.navigationController?.setToolbarHidden(false, animated: true)
         
+        // _selectedCells
         self._selectedCells.add(indexPath)
         
         // update cell
-        let myCell = collectionView.cellForItem(at: indexPath) as! PhotoThumbnailCell
+        selectCell(indexPath: indexPath)
+    }
+    
+    func selectCell(indexPath: IndexPath) {
+        let myCell = collection_photos.cellForItem(at: indexPath) as! PhotoThumbnailCell
         myCell.isSelected = true
-        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionViewScrollPosition.bottom)
+        collection_photos.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionViewScrollPosition.bottom)
         myCell.updateSelectionView()
     }
     
     func collectionView(_ collectionView: UICollectionView,
                                  didDeselectItemAt indexPath: IndexPath) {
+        // _selectedCells
         _selectedCells.remove(indexPath)
         
         // update cell
-        let myCell = collectionView.cellForItem(at: indexPath) as! PhotoThumbnailCell
-        myCell.isSelected = false
-        myCell.updateSelectionView()
+        deselectCell(indexPath: indexPath)
         
         // hide toolbar if no photos selected
         if (_selectedCells.count == 0) {
             self.navigationController?.setToolbarHidden(true, animated: true)
         }
+    }
+    
+    func deselectCell(indexPath: IndexPath) {
+        let myCell = collection_photos.cellForItem(at: indexPath) as! PhotoThumbnailCell
+        myCell.isSelected = false
+        myCell.updateSelectionView()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -160,8 +170,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if (changeDetails != nil) {
             DispatchQueue.main.async(execute: {
                 // selected indeices will get messed up, deselect all
-                self._selectedCells = []
-                self.navigationController?.setToolbarHidden(true, animated: true)
+                self.deselectAll()
                 
                 // update data source
                 self.myFetchResult = changeDetails?.fetchResultAfterChanges
@@ -232,8 +241,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
                 // write to album
                 CustomPhotoAlbum.saveImage(image: combinedImg)
+                
+                // TODO: update HUD progress
             })
         }
+        
+        // TODO: show done HUD
+        
+        // deselect all cells
+        deselectAll()
     }
     
     /**
@@ -277,6 +293,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         UIGraphicsEndImageContext()
         
         return newImg
+    }
+    
+    func deselectAll() {
+        // _selectedCells
+        self._selectedCells = []
+        
+        // tool bar
+        self.navigationController?.setToolbarHidden(true, animated: true)
+        
+        // update cells
+        for indexPath in collection_photos.indexPathsForSelectedItems! {
+            deselectCell(indexPath: indexPath)
+        }
     }
 }
 
