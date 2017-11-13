@@ -118,7 +118,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         selectedCells[indexPath] = myCell
         
         // update collection view
-        collection_photos.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionViewScrollPosition.bottom)
+        collection_photos.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
         
         // update cell view
         myCell.isSelected = true

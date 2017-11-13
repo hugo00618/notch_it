@@ -58,8 +58,6 @@ class PhotoThumbnailCell: UICollectionViewCell {
                 self.img_notch.bounds = CGRect(x: 0, y: 0,
                                                width: cellHeight,
                                                height: cellWidth)
-                self.img_notch.center = self.center
-                
                 self.img_rotate.isHidden = false;
             }
         })
@@ -68,6 +66,11 @@ class PhotoThumbnailCell: UICollectionViewCell {
     func setNotchOff() {
         let cellWidth = self.bounds.width
         let cellHeight = self.bounds.height
+        
+        if (!isPortrait) {
+            self.img_notch.center = CGPoint(x: cellWidth / 2.0, y: cellHeight / 2.0)
+            self.img_notch.transform = CGAffineTransform(rotationAngle: -90.0 * .pi / 180.0)
+        }
         
         UIView.animate(withDuration: NOTCH_SWITCH_ANIM_TIME, animations: {() in
             if (self.isPortrait) {
@@ -78,7 +81,6 @@ class PhotoThumbnailCell: UICollectionViewCell {
                 self.img_notch.bounds = CGRect(x: 0, y: 0,
                                                width: cellHeight * self.NOTCH_OFF_FACTOR,
                                                height: cellWidth * self.NOTCH_OFF_FACTOR)
-                self.img_notch.center = self.center
                 self.img_rotate.isHidden = true;
             }
         })
