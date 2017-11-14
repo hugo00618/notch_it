@@ -74,7 +74,6 @@ class PhotoThumbnailCell: UICollectionViewCell {
         
         UIView.animate(withDuration: NOTCH_SWITCH_ANIM_TIME, animations: {() in
             if (self.isPortrait) {
-                print(cellWidth, cellHeight)
                 self.img_notch.bounds = CGRect(x: 0, y: 0,
                                            width: cellWidth * self.NOTCH_OFF_FACTOR,
                                            height: cellHeight * self.NOTCH_OFF_FACTOR)

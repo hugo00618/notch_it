@@ -117,12 +117,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // update model
         selectedCells[indexPath] = myCell
         
-        // update collection view
-        collection_photos.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
-        
-        // update cell view
-        myCell.isSelected = true
-        myCell.updateSelectionView()
+        // tool bar bounds takes time to update
+        // selecting cells in the last row doesn't scroll to desried position if execute immediately after
+        // adding a small delay would fix this...
+        // assuming user device has a refresh rate of 120Hz, this only add one frame of delay
+        // so they probably won't notice lol
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0 / 120, execute: {
+            // update collection view
+            self.collection_photos.selectItem(at: indexPath, animated: true, scrollPosition: .centeredVertically)
+            
+            // update cell view
+            myCell.isSelected = true
+            myCell.updateSelectionView()
+        })
     }
     
     func collectionView(_ collectionView: UICollectionView,
