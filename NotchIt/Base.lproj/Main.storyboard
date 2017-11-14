@@ -70,7 +70,7 @@
                                                     <rect key="frame" x="148" y="366" width="28" height="28"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_rotate" translatesAutoresizingMaskIntoConstraints="NO" id="S0o-fC-d8L">
-                                                    <rect key="frame" x="73.666666666666671" y="183" width="40" height="40"/>
+                                                    <rect key="frame" x="69.666666666666671" y="179" width="48" height="48"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -128,7 +128,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_rotate" width="40" height="40"/>
+        <image name="ic_rotate" width="48" height="48"/>
         <image name="ic_tick" width="28" height="28"/>
         <image name="img_notch" width="1125" height="2436"/>
     </resources>

@@ -102,7 +102,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         myCell.isPortrait = isPortrait
         
         // set cell selection view
-        myCell.updateSelectionView()
+//        myCell.updateSelectionView()
         
         return myCell
     }
@@ -128,7 +128,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             // update cell view
             myCell.isSelected = true
-            myCell.updateSelectionView()
+            myCell.setNotchOnOff(on: true)
         })
     }
     
@@ -146,7 +146,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         // update cell
         myCell.isSelected = false
-        myCell.updateSelectionView()
+        myCell.setNotchOnOff(on: false)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -350,7 +350,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             collection_photos.deselectItem(at: indexPath, animated: false)
         }
         for (_, cell) in selectedCells {
-            cell.updateSelectionView()
+            cell.setNotchOnOff(on: false)
         }
         
         // model
