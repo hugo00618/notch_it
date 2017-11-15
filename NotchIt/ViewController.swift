@@ -27,6 +27,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // view
     @IBOutlet var collection_photos: UICollectionView!
     @IBOutlet weak var label_noPhotos: UILabel!
+    @IBOutlet weak var batButtonNumSelected: UIBarButtonItem!
     var hud: MBProgressHUD!
     
     // photo assets
@@ -111,11 +112,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                                  didSelectItemAt indexPath: IndexPath) {
         let myCell = collection_photos.cellForItem(at: indexPath) as! PhotoThumbnailCell
         
-        // show toolbar
-        self.navigationController?.setToolbarHidden(false, animated: true)
-        
         // update model
         selectedCells[indexPath] = myCell
+        
+        // toolbar
+        // show toolbar
+        self.navigationController?.setToolbarHidden(false, animated: true)
+        // update numSelected
+        updateNumSelected()
         
         // tool bar bounds takes time to update
         // selecting cells in the last row doesn't scroll to desried position if execute immediately after
@@ -139,10 +143,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // _selectedCells
         selectedCells.removeValue(forKey: indexPath)
         
+        // toolbar
         // hide toolbar if no photos selected
         if (selectedCells.count == 0) {
             self.navigationController?.setToolbarHidden(true, animated: true)
         }
+        // update numSelected
+        updateNumSelected()
         
         // update cell
         myCell.isSelected = false
@@ -298,6 +305,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
+    @IBAction func onClickDeselectAll(_ sender: Any) {
+        deselectAll()
+    }
+    
     /**
      Add notch to bottomImg
      
@@ -390,5 +401,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             hud!.hide(animated: true)
         }
      }
+    
+    func updateNumSelected() {
+        print(selectedCells.count)
+        batButtonNumSelected.title = String(selectedCells.count) + " Selected"
+    }
 }
 
