@@ -113,7 +113,7 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="iqQ-Sn-5E7"/>
-                        <barButtonItem title="1 Selected" id="cgc-Rr-tVz">
+                        <barButtonItem enabled="NO" title="1 Selected" id="cgc-Rr-tVz">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Gcq-Tk-snn"/>
@@ -126,7 +126,7 @@
                     <navigationItem key="navigationItem" id="vQ0-9J-8pu"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="batButtonNumSelected" destination="cgc-Rr-tVz" id="Ghg-bO-9fR"/>
+                        <outlet property="barButtonNumSelected" destination="cgc-Rr-tVz" id="hoi-EC-dWi"/>
                         <outlet property="collection_photos" destination="IQB-l7-d18" id="XPP-gV-gzH"/>
                         <outlet property="label_noPhotos" destination="z9i-SU-kiX" id="YNM-wE-J1y"/>
                     </connections>

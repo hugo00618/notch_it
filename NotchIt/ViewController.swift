@@ -27,7 +27,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // view
     @IBOutlet var collection_photos: UICollectionView!
     @IBOutlet weak var label_noPhotos: UILabel!
-    @IBOutlet weak var batButtonNumSelected: UIBarButtonItem!
+    @IBOutlet weak var barButtonNumSelected: UIBarButtonItem!
     var hud: MBProgressHUD!
     
     // photo assets
@@ -54,8 +54,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         gridSpacing = (collection_photos.collectionViewLayout as! UICollectionViewFlowLayout).minimumInteritemSpacing
         
+        // tool bar
         // hide tool bar
         self.navigationController?.setToolbarHidden(true, animated: false)
+        // set bar button disabled color
+        barButtonNumSelected.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.darkGray], for: UIControlState.disabled)
         
         // init imageManager
         imageManager = PHCachingImageManager()
@@ -403,8 +406,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
      }
     
     func updateNumSelected() {
-        print(selectedCells.count)
-        batButtonNumSelected.title = String(selectedCells.count) + " Selected"
+        barButtonNumSelected.title = String(selectedCells.count) + " Selected"
     }
 }
 
