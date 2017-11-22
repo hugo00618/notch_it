@@ -79,14 +79,6 @@ class MyViewController: UIViewController, UIPageViewControllerDataSource, PHPhot
         return nil;
     }
     
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return assets.count
-    }
-    
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return 0
-    }
-    
     // MARK: PHPhotoLibraryChangeObserver
     func photoLibraryDidChange(_ changeInstance: PHChange) {
         let changeDetails = changeInstance.changeDetails(for: myFetchResult)
