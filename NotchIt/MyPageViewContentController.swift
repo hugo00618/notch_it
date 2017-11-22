@@ -26,6 +26,7 @@ class MyPageViewContentController: UIViewController {
     @IBOutlet weak var constraint_outerRatio: NSLayoutConstraint!
     @IBOutlet weak var constraint_outerRatioLandscape: NSLayoutConstraint!
     @IBOutlet weak var constraint_outerLeading: NSLayoutConstraint!
+    @IBOutlet weak var constraint_outerBottom: NSLayoutConstraint!
     @IBOutlet weak var view_imageContainerInner: UIView!
     @IBOutlet weak var image_thumbnail: UIImageView!
     @IBOutlet weak var image_tick: UIImageView!
@@ -64,7 +65,8 @@ class MyPageViewContentController: UIViewController {
                     // switch to landscape constraints
                     self.constraint_outerRatio.isActive = false
                     self.constraint_outerRatioLandscape.isActive = true
-                    self.constraint_outerLeading.constant = 24
+                    self.constraint_outerBottom.isActive = false
+                    self.constraint_outerLeading.isActive = true
                     self.view.layoutIfNeeded()
                     
                     // re-init view

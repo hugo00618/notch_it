@@ -172,13 +172,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999 Selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IB8-GK-nDD">
-                                <rect key="frame" x="135" y="56" width="104" height="21"/>
+                                <rect key="frame" x="135" y="66" width="104" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.086274509803921567" green="0.19607843137254902" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_cancel" translatesAutoresizingMaskIntoConstraints="NO" id="F0s-15-Si3">
-                                <rect key="frame" x="247" y="48.666666666666657" width="36" height="36"/>
+                                <rect key="frame" x="247" y="58.666666666666657" width="36" height="36"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
@@ -186,7 +186,7 @@
                             <constraint firstItem="oDp-HP-nFS" firstAttribute="centerX" secondItem="vKj-6b-tKy" secondAttribute="centerX" id="2ai-Nq-7We"/>
                             <constraint firstItem="vKj-6b-tKy" firstAttribute="trailing" secondItem="nZT-Fe-3gh" secondAttribute="trailing" constant="24" id="JXh-4l-Ei0"/>
                             <constraint firstItem="vKj-6b-tKy" firstAttribute="bottom" secondItem="nZT-Fe-3gh" secondAttribute="bottom" constant="8" id="Wm1-MS-lbq"/>
-                            <constraint firstItem="IB8-GK-nDD" firstAttribute="top" secondItem="vKj-6b-tKy" secondAttribute="top" constant="12" id="i7o-63-ewe"/>
+                            <constraint firstItem="IB8-GK-nDD" firstAttribute="top" secondItem="vKj-6b-tKy" secondAttribute="top" constant="22" id="i7o-63-ewe"/>
                             <constraint firstItem="IB8-GK-nDD" firstAttribute="centerX" secondItem="vKj-6b-tKy" secondAttribute="centerX" id="oUv-0j-Ff2"/>
                             <constraint firstItem="F0s-15-Si3" firstAttribute="leading" secondItem="IB8-GK-nDD" secondAttribute="trailing" constant="8" id="oYa-wk-l1C"/>
                             <constraint firstItem="F0s-15-Si3" firstAttribute="centerY" secondItem="IB8-GK-nDD" secondAttribute="centerY" id="plT-wM-uzx"/>
@@ -269,12 +269,19 @@
                         <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="g5B-Ok-NOX" firstAttribute="centerX" secondItem="uaJ-nB-Ycr" secondAttribute="centerX" id="10c-uj-Cg4"/>
-                            <constraint firstItem="g5B-Ok-NOX" firstAttribute="leading" secondItem="uaJ-nB-Ycr" secondAttribute="leading" constant="48" id="ATN-WD-qnd"/>
+                            <constraint firstItem="g5B-Ok-NOX" firstAttribute="leading" secondItem="uaJ-nB-Ycr" secondAttribute="leading" constant="24" id="ATN-WD-qnd"/>
                             <constraint firstItem="g5B-Ok-NOX" firstAttribute="centerY" secondItem="uaJ-nB-Ycr" secondAttribute="centerY" id="JGE-se-9oM"/>
+                            <constraint firstItem="uaJ-nB-Ycr" firstAttribute="bottom" secondItem="g5B-Ok-NOX" secondAttribute="bottom" constant="65" id="mtc-vq-xpi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uaJ-nB-Ycr"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ATN-WD-qnd"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="constraint_outerBottom" destination="mtc-vq-xpi" id="50Y-Tu-DEf"/>
                         <outlet property="constraint_outerLeading" destination="ATN-WD-qnd" id="45L-bW-MyG"/>
                         <outlet property="constraint_outerRatio" destination="KAr-x9-tDq" id="nBM-9T-VBi"/>
                         <outlet property="constraint_outerRatioLandscape" destination="pUu-p9-ika" id="dt6-KS-kwG"/>
