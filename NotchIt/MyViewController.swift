@@ -31,6 +31,8 @@ class MyViewController: UIViewController, UIPageViewControllerDataSource, PHPhot
     var pageViewController: UIPageViewController!
     @IBOutlet weak var buttonExport: UIShadowButton!
     @IBOutlet weak var labelNumSelected: UILabel!
+    @IBOutlet weak var imageDeslectAll: UIImageView!
+    @IBOutlet weak var labelNoPhotos: UILabel!
     var hud: MBProgressHUD!
     
     override func viewDidLoad() {
@@ -54,8 +56,14 @@ class MyViewController: UIViewController, UIPageViewControllerDataSource, PHPhot
         self.view.insertSubview(self.pageViewController.view, belowSubview: buttonExport)
         self.pageViewController.didMove(toParentViewController: self)
         
-        // button
-        buttonExport.isHighlighted = false // reset button to show normal state
+        // reset export button to show normal state
+        buttonExport.isHighlighted = false
+        
+        // add click listener to deselect all
+        let singleTapDeselectAll = UITapGestureRecognizer(target: self, action: #selector (self.onClickDeselectAll(_:)))
+        singleTapDeselectAll.numberOfTapsRequired = 1
+        imageDeslectAll.isUserInteractionEnabled = true
+        imageDeslectAll.addGestureRecognizer(singleTapDeselectAll)
         
         updateExportViewsVisibility()
     }
@@ -127,7 +135,7 @@ class MyViewController: UIViewController, UIPageViewControllerDataSource, PHPhot
         
         // go update view if fetch result is empty
         if (totalCount == 0) {
-            //            updateView()
+//            updateView()
         }
         
         // enumerate
@@ -144,7 +152,7 @@ class MyViewController: UIViewController, UIPageViewControllerDataSource, PHPhot
                 
                 enumeratedCount += 1
                 if (enumeratedCount == totalCount) { // enumeration finished
-                    //                    self.updateView()
+//                    self.updateView()
                     
                     // re-init contentVCs
                     self.contentVCs = Array(repeating: nil, count: self.assets.count)
@@ -191,12 +199,14 @@ class MyViewController: UIViewController, UIPageViewControllerDataSource, PHPhot
     }
     
     func updateExportViewsVisibility() {
-        if (self.selectedIndices.isEmpty) {
-            self.buttonExport.alpha = 0
+        if (selectedIndices.isEmpty) {
+            buttonExport.alpha = 0
             labelNumSelected.alpha = 0
+            imageDeslectAll.alpha = 0
         } else {
             self.buttonExport.alpha = 1
             labelNumSelected.alpha = 1
+            imageDeslectAll.alpha = 1
         }
     }
     
@@ -211,6 +221,10 @@ class MyViewController: UIViewController, UIPageViewControllerDataSource, PHPhot
             selectedIndices.remove(at: index)
             animateExportViewsVisibility()
         }
+    }
+    
+    @objc func onClickDeselectAll(_ sender: Any) {
+        deselectAll()
     }
     
     @IBAction func onClickExport(_ sender: Any) {
