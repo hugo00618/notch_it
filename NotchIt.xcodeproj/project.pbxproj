@@ -11,6 +11,9 @@
 		7DF314858826E2152DF70CF8 /* Pods_NotchItTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B9097E9DA5550AE3CACF50 /* Pods_NotchItTests.framework */; };
 		9A0DFEE31FB0CBD300BC7C36 /* PhotoThumbnailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0DFEE21FB0CBD300BC7C36 /* PhotoThumbnailCell.swift */; };
 		9A32E7171FB64E9D00A9287A /* CustomPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32E7161FB64E9D00A9287A /* CustomPhotoAlbum.swift */; };
+		9A32E7251FBD09D000A9287A /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32E7241FBD09D000A9287A /* MyViewController.swift */; };
+		9A32E7271FBDD7BB00A9287A /* MyPageViewContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32E7261FBDD7BB00A9287A /* MyPageViewContentController.swift */; };
+		9A32E7291FBDE63C00A9287A /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32E7281FBDE63C00A9287A /* ImageUtils.swift */; };
 		9A4F004D1FAE966A00A8D4D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F004C1FAE966A00A8D4D8 /* AppDelegate.swift */; };
 		9A4F004F1FAE966A00A8D4D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F004E1FAE966A00A8D4D8 /* ViewController.swift */; };
 		9A4F00521FAE966A00A8D4D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F00501FAE966A00A8D4D8 /* Main.storyboard */; };
@@ -18,6 +21,8 @@
 		9A4F00571FAE966A00A8D4D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A4F00551FAE966A00A8D4D8 /* LaunchScreen.storyboard */; };
 		9A4F00621FAE966A00A8D4D8 /* NotchItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F00611FAE966A00A8D4D8 /* NotchItTests.swift */; };
 		9A4F006D1FAE966A00A8D4D8 /* NotchItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4F006C1FAE966A00A8D4D8 /* NotchItUITests.swift */; };
+		9A8EC4BA1FC49C1700AFB3F3 /* CellSelectDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EC4B91FC49C1700AFB3F3 /* CellSelectDelegate.swift */; };
+		9A9075301FC5CBB400BA52F9 /* UIShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A90752F1FC5CBB400BA52F9 /* UIShadowButton.swift */; };
 		AF160F31B151812E754B7AAC /* Pods_NotchItUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACECA2B59A758B1B2525F091 /* Pods_NotchItUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +53,9 @@
 		9A32E71F1FB7E31F00A9287A /* NotchIt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NotchIt-Bridging-Header.h"; sourceTree = "<group>"; };
 		9A32E7211FB7E3A400A9287A /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A32E7231FB7E43A00A9287A /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A32E7241FBD09D000A9287A /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		9A32E7261FBDD7BB00A9287A /* MyPageViewContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewContentController.swift; sourceTree = "<group>"; };
+		9A32E7281FBDE63C00A9287A /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		9A4F00491FAE966A00A8D4D8 /* Notch It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notch It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4F004C1FAE966A00A8D4D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A4F004E1FAE966A00A8D4D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +69,8 @@
 		9A4F00681FAE966A00A8D4D8 /* NotchItUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotchItUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4F006C1FAE966A00A8D4D8 /* NotchItUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchItUITests.swift; sourceTree = "<group>"; };
 		9A4F006E1FAE966A00A8D4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A8EC4B91FC49C1700AFB3F3 /* CellSelectDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSelectDelegate.swift; sourceTree = "<group>"; };
+		9A90752F1FC5CBB400BA52F9 /* UIShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIShadowButton.swift; sourceTree = "<group>"; };
 		A63B86E9F3E3F04AEA168453 /* Pods-NotchItTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotchItTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NotchItTests/Pods-NotchItTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ACECA2B59A758B1B2525F091 /* Pods_NotchItUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotchItUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B9097E9DA5550AE3CACF50 /* Pods_NotchItTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotchItTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,8 +158,13 @@
 			children = (
 				9A4F004C1FAE966A00A8D4D8 /* AppDelegate.swift */,
 				9A4F004E1FAE966A00A8D4D8 /* ViewController.swift */,
+				9A32E7241FBD09D000A9287A /* MyViewController.swift */,
+				9A8EC4B91FC49C1700AFB3F3 /* CellSelectDelegate.swift */,
 				9A0DFEE21FB0CBD300BC7C36 /* PhotoThumbnailCell.swift */,
+				9A32E7261FBDD7BB00A9287A /* MyPageViewContentController.swift */,
+				9A90752F1FC5CBB400BA52F9 /* UIShadowButton.swift */,
 				9A32E7161FB64E9D00A9287A /* CustomPhotoAlbum.swift */,
+				9A32E7281FBDE63C00A9287A /* ImageUtils.swift */,
 				9A4F00501FAE966A00A8D4D8 /* Main.storyboard */,
 				9A4F00531FAE966A00A8D4D8 /* Assets.xcassets */,
 				9A4F00551FAE966A00A8D4D8 /* LaunchScreen.storyboard */,
@@ -470,10 +485,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A32E7251FBD09D000A9287A /* MyViewController.swift in Sources */,
 				9A0DFEE31FB0CBD300BC7C36 /* PhotoThumbnailCell.swift in Sources */,
 				9A4F004F1FAE966A00A8D4D8 /* ViewController.swift in Sources */,
 				9A4F004D1FAE966A00A8D4D8 /* AppDelegate.swift in Sources */,
 				9A32E7171FB64E9D00A9287A /* CustomPhotoAlbum.swift in Sources */,
+				9A9075301FC5CBB400BA52F9 /* UIShadowButton.swift in Sources */,
+				9A32E7271FBDD7BB00A9287A /* MyPageViewContentController.swift in Sources */,
+				9A8EC4BA1FC49C1700AFB3F3 /* CellSelectDelegate.swift in Sources */,
+				9A32E7291FBDE63C00A9287A /* ImageUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
