@@ -24,15 +24,15 @@ class MyViewController: UIViewController, UIPageViewControllerDataSource, PHPhot
     // model
     var myFetchResult: PHFetchResult<PHAsset>!
     var assets = [PHAsset]()
-    var contentVCs: [MyPageViewContentController?]!
+    var contentVCs = [MyPageViewContentController?]()
     var selectedIndices = [Int]()
     
     // view
+    @IBOutlet weak var labelNoPhotos: UILabel!
     var pageViewController: UIPageViewController!
     @IBOutlet weak var buttonExport: UIShadowButton!
     @IBOutlet weak var labelNumSelected: UILabel!
     @IBOutlet weak var imageDeslectAll: UIImageView!
-    @IBOutlet weak var labelNoPhotos: UILabel!
     var hud: MBProgressHUD!
     
     override func viewDidLoad() {
@@ -48,8 +48,7 @@ class MyViewController: UIViewController, UIPageViewControllerDataSource, PHPhot
         // pageViewController
         self.pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "MyPageViewController") as! UIPageViewController
         self.pageViewController.dataSource = self
-        let initialContenViewController = getPageVCContent(at: 0)
-        self.pageViewController.setViewControllers([initialContenViewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
+        self.pageViewController.setViewControllers([getPageVCContent(at: 0)], direction: UIPageViewControllerNavigationDirection.forward, animated: false, completion: nil)
         self.pageViewController.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         self.addChildViewController(self.pageViewController)
         
@@ -101,12 +100,19 @@ class MyViewController: UIViewController, UIPageViewControllerDataSource, PHPhot
                 self.myFetchResult = changeDetails?.fetchResultAfterChanges
                 self.saveToAssets()
                 
+                self.pageViewController.setViewControllers([self.getPageVCContent(at: 0)], direction: UIPageViewControllerNavigationDirection.forward, animated: false, completion: nil)
                 //resetCachedAssets()
             })
         }
     }
     
     func getPageVCContent(at: Int) -> MyPageViewContentController {
+        if (contentVCs.isEmpty) {
+            let newVC = self.storyboard?.instantiateViewController(
+                withIdentifier: "MyPageViewContentController") as! MyPageViewContentController
+            return newVC
+        }
+        
         if (contentVCs[at] == nil) {
             let newVC = self.storyboard?.instantiateViewController(
                 withIdentifier: "MyPageViewContentController") as! MyPageViewContentController
@@ -131,11 +137,12 @@ class MyViewController: UIViewController, UIPageViewControllerDataSource, PHPhot
     
     func saveToAssets() {
         assets = [PHAsset]()
+        
         let totalCount = myFetchResult.count
         
         // go update view if fetch result is empty
         if (totalCount == 0) {
-//            updateView()
+            updateView()
         }
         
         // enumerate
@@ -152,7 +159,7 @@ class MyViewController: UIViewController, UIPageViewControllerDataSource, PHPhot
                 
                 enumeratedCount += 1
                 if (enumeratedCount == totalCount) { // enumeration finished
-//                    self.updateView()
+                    self.updateView()
                     
                     // re-init contentVCs
                     self.contentVCs = Array(repeating: nil, count: self.assets.count)
@@ -164,6 +171,14 @@ class MyViewController: UIViewController, UIPageViewControllerDataSource, PHPhot
                     })
                 }
             }
+        }
+    }
+    
+    func updateView() {
+        if (assets.isEmpty) {
+            labelNoPhotos.isHidden = false
+        } else {
+            labelNoPhotos.isHidden = true
         }
     }
     

@@ -14,7 +14,7 @@ class MyPageViewContentController: UIViewController {
     static let NOTCH_SWITCH_ANIM_TIME = 0.15
     
     // model
-    var index: Int!
+    var index = 0
     var thumbnailAsset: PHAsset!
     var isSelected = false
     var isPortrait = true
@@ -38,6 +38,12 @@ class MyPageViewContentController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // show no photos prompt
+        if (thumbnailAsset == nil) {
+            self.view.isHidden = true
+            return
+        }
         
         // view
         // request thumbnail

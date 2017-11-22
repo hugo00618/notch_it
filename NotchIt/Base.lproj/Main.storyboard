@@ -152,6 +152,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No iPhone X Screenshots" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDp-HP-nFS">
+                                <rect key="frame" x="40" y="394" width="295" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZT-Fe-3gh" customClass="UIShadowButton" customModule="Notch_It" customModuleProvider="target">
                                 <rect key="frame" x="24" y="734" width="327" height="36"/>
                                 <color key="backgroundColor" red="0.2196078431372549" green="0.68235294117647061" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -174,31 +180,25 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_cancel" translatesAutoresizingMaskIntoConstraints="NO" id="F0s-15-Si3">
                                 <rect key="frame" x="247" y="48.666666666666657" width="36" height="36"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No iPhone X Screenshots" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYu-ON-J0b">
-                                <rect key="frame" x="40" y="394.66666666666669" width="295" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="oDp-HP-nFS" firstAttribute="centerX" secondItem="vKj-6b-tKy" secondAttribute="centerX" id="2ai-Nq-7We"/>
                             <constraint firstItem="vKj-6b-tKy" firstAttribute="trailing" secondItem="nZT-Fe-3gh" secondAttribute="trailing" constant="24" id="JXh-4l-Ei0"/>
-                            <constraint firstItem="AYu-ON-J0b" firstAttribute="centerX" secondItem="vKj-6b-tKy" secondAttribute="centerX" id="RAp-U8-K15"/>
                             <constraint firstItem="vKj-6b-tKy" firstAttribute="bottom" secondItem="nZT-Fe-3gh" secondAttribute="bottom" constant="8" id="Wm1-MS-lbq"/>
                             <constraint firstItem="IB8-GK-nDD" firstAttribute="top" secondItem="vKj-6b-tKy" secondAttribute="top" constant="12" id="i7o-63-ewe"/>
-                            <constraint firstItem="AYu-ON-J0b" firstAttribute="centerY" secondItem="vKj-6b-tKy" secondAttribute="centerY" id="kKP-ti-DZq"/>
                             <constraint firstItem="IB8-GK-nDD" firstAttribute="centerX" secondItem="vKj-6b-tKy" secondAttribute="centerX" id="oUv-0j-Ff2"/>
                             <constraint firstItem="F0s-15-Si3" firstAttribute="leading" secondItem="IB8-GK-nDD" secondAttribute="trailing" constant="8" id="oYa-wk-l1C"/>
                             <constraint firstItem="F0s-15-Si3" firstAttribute="centerY" secondItem="IB8-GK-nDD" secondAttribute="centerY" id="plT-wM-uzx"/>
                             <constraint firstItem="nZT-Fe-3gh" firstAttribute="leading" secondItem="vKj-6b-tKy" secondAttribute="leading" constant="24" id="r1i-Vt-Jtb"/>
+                            <constraint firstItem="oDp-HP-nFS" firstAttribute="centerY" secondItem="vKj-6b-tKy" secondAttribute="centerY" id="wka-k7-3EM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vKj-6b-tKy"/>
                     </view>
                     <connections>
                         <outlet property="buttonExport" destination="nZT-Fe-3gh" id="sbN-gR-bAC"/>
                         <outlet property="imageDeslectAll" destination="F0s-15-Si3" id="uTt-OY-qhs"/>
-                        <outlet property="labelNoPhotos" destination="AYu-ON-J0b" id="8to-nZ-D77"/>
+                        <outlet property="labelNoPhotos" destination="oDp-HP-nFS" id="yfE-kK-YqH"/>
                         <outlet property="labelNumSelected" destination="IB8-GK-nDD" id="Bfh-UK-ipN"/>
                     </connections>
                 </viewController>
@@ -266,6 +266,7 @@
                                 </variation>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="g5B-Ok-NOX" firstAttribute="centerX" secondItem="uaJ-nB-Ycr" secondAttribute="centerX" id="10c-uj-Cg4"/>
                             <constraint firstItem="g5B-Ok-NOX" firstAttribute="leading" secondItem="uaJ-nB-Ycr" secondAttribute="leading" constant="48" id="ATN-WD-qnd"/>
