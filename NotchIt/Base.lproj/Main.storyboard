@@ -10,132 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="D5N-xD-uPp">
-            <objects>
-                <navigationController navigationBarHidden="YES" toolbarHidden="NO" id="TrM-ML-nDh" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ceH-YV-XUM">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RyN-Gx-Iam">
-                        <rect key="frame" x="0.0" y="729.5" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="09L-VE-vB3" kind="relationship" relationship="rootViewController" id="gWR-Ax-tJ6"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cDB-uM-jBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-209" y="1009"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="K5S-3n-Wt0">
-            <objects>
-                <viewController id="09L-VE-vB3" customClass="ViewController" customModule="Notch_It" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="m6E-N9-CrU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No iPhone X Screenshots" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9i-SU-kiX">
-                                <rect key="frame" x="40" y="370" width="295" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IQB-l7-d18">
-                                <rect key="frame" x="0.0" y="39" width="375" height="734"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="1.5" id="5wY-dp-lQr">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="PZa-pc-fMH" customClass="PhotoThumbnailCell" customModule="Notch_It" customModuleProvider="target">
-                                        <rect key="frame" x="93.666666666666671" y="0.0" width="187.5" height="406"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="406"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C7U-T4-1Z7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="188" height="406"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img_notch" translatesAutoresizingMaskIntoConstraints="NO" id="ufQ-NW-geU">
-                                                    <rect key="frame" x="-1" y="0.0" width="188" height="406"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_tick" translatesAutoresizingMaskIntoConstraints="NO" id="jit-CT-6da">
-                                                    <rect key="frame" x="142" y="360" width="34" height="34"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_rotate" translatesAutoresizingMaskIntoConstraints="NO" id="S0o-fC-d8L">
-                                                    <rect key="frame" x="68.666666666666671" y="178" width="50" height="50"/>
-                                                </imageView>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="jit-CT-6da" secondAttribute="trailing" constant="12" id="BUK-So-tV7"/>
-                                            <constraint firstItem="C7U-T4-1Z7" firstAttribute="leading" secondItem="PZa-pc-fMH" secondAttribute="leading" id="GLG-Py-B9Y"/>
-                                            <constraint firstAttribute="trailing" secondItem="C7U-T4-1Z7" secondAttribute="trailing" id="HQ9-0a-UmX"/>
-                                            <constraint firstItem="S0o-fC-d8L" firstAttribute="centerX" secondItem="PZa-pc-fMH" secondAttribute="centerX" id="Je9-cv-wtB"/>
-                                            <constraint firstItem="C7U-T4-1Z7" firstAttribute="top" secondItem="PZa-pc-fMH" secondAttribute="top" id="Xwx-Ok-FDh"/>
-                                            <constraint firstItem="S0o-fC-d8L" firstAttribute="centerY" secondItem="PZa-pc-fMH" secondAttribute="centerY" id="bTz-6h-0SM"/>
-                                            <constraint firstAttribute="bottom" secondItem="jit-CT-6da" secondAttribute="bottom" constant="12" id="rNx-db-lhm"/>
-                                            <constraint firstAttribute="bottom" secondItem="C7U-T4-1Z7" secondAttribute="bottom" id="xxn-Se-r8P"/>
-                                        </constraints>
-                                        <size key="customSize" width="187.5" height="406"/>
-                                        <connections>
-                                            <outlet property="img_notch" destination="ufQ-NW-geU" id="q5D-QI-TdQ"/>
-                                            <outlet property="img_rotate" destination="S0o-fC-d8L" id="pYF-0F-gXK"/>
-                                            <outlet property="img_thumbnail" destination="C7U-T4-1Z7" id="rSI-4q-Cx9"/>
-                                            <outlet property="img_tick" destination="jit-CT-6da" id="SYx-gS-1tq"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="z9i-SU-kiX" firstAttribute="centerX" secondItem="Cjl-w8-VSb" secondAttribute="centerX" id="4p3-X5-YWj"/>
-                            <constraint firstItem="IQB-l7-d18" firstAttribute="bottom" secondItem="Cjl-w8-VSb" secondAttribute="bottom" constant="44" id="6E3-4h-vRy"/>
-                            <constraint firstItem="Cjl-w8-VSb" firstAttribute="trailing" secondItem="IQB-l7-d18" secondAttribute="trailing" id="FEM-Mu-v6u"/>
-                            <constraint firstItem="z9i-SU-kiX" firstAttribute="centerY" secondItem="Cjl-w8-VSb" secondAttribute="centerY" id="i2i-0y-jq4"/>
-                            <constraint firstItem="IQB-l7-d18" firstAttribute="leading" secondItem="Cjl-w8-VSb" secondAttribute="leading" id="mUX-Zv-W70"/>
-                            <constraint firstItem="Cjl-w8-VSb" firstAttribute="top" secondItem="IQB-l7-d18" secondAttribute="top" constant="5" id="vA9-cz-3cY"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Cjl-w8-VSb"/>
-                    </view>
-                    <toolbarItems>
-                        <barButtonItem systemItem="stop" id="9yT-Ig-bOr">
-                            <connections>
-                                <action selector="onClickDeselectAll:" destination="09L-VE-vB3" id="3Yg-ZU-esX"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="iqQ-Sn-5E7"/>
-                        <barButtonItem enabled="NO" title="1 Selected" id="cgc-Rr-tVz">
-                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Gcq-Tk-snn"/>
-                        <barButtonItem title="Notch It" style="done" id="TuS-2x-5T0">
-                            <connections>
-                                <action selector="onClickNotchIt:" destination="09L-VE-vB3" id="dm3-oC-eCL"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" id="vQ0-9J-8pu"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="barButtonNumSelected" destination="cgc-Rr-tVz" id="hoi-EC-dWi"/>
-                        <outlet property="collection_photos" destination="IQB-l7-d18" id="XPP-gV-gzH"/>
-                        <outlet property="label_noPhotos" destination="z9i-SU-kiX" id="YNM-wE-J1y"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nMr-Dz-Ejj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="648.79999999999995" y="1008.6206896551724"/>
-        </scene>
         <!--Page View Controller-->
         <scene sceneID="41k-BG-Ys6">
             <objects>
@@ -178,7 +52,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_cancel" translatesAutoresizingMaskIntoConstraints="NO" id="F0s-15-Si3">
-                                <rect key="frame" x="247" y="58.666666666666657" width="36" height="36"/>
+                                <rect key="frame" x="247" y="40.666666666666657" width="72" height="72"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
@@ -224,10 +98,10 @@
                                                 <rect key="frame" x="-0.66666666666665719" y="0.0" width="279" height="604"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_tick" translatesAutoresizingMaskIntoConstraints="NO" id="RHJ-IG-fkm">
-                                                <rect key="frame" x="237" y="562" width="34" height="34"/>
+                                                <rect key="frame" x="203" y="528" width="68" height="68"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_rotate" translatesAutoresizingMaskIntoConstraints="NO" id="F6N-tG-Xme">
-                                                <rect key="frame" x="114.33333333333334" y="277" width="50" height="50"/>
+                                                <rect key="frame" x="89.333333333333343" y="252" width="100" height="100"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_notch" translatesAutoresizingMaskIntoConstraints="NO" id="otr-Q9-zDm">
                                                 <rect key="frame" x="-0.66666666666665719" y="0.0" width="279" height="604"/>

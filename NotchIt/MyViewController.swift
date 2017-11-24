@@ -150,10 +150,10 @@ class MyViewController: UIViewController, UIPageViewControllerDataSource, PHPhot
         myFetchResult.enumerateObjects { (obj: AnyObject, idx: Int, stop: UnsafeMutablePointer<ObjCBool>) in
             if let asset = obj as? PHAsset {
                 // filter out non-iPhone X scrrenshots
-                if ((CGFloat(asset.pixelWidth) == ViewController.IPHONE_X_WIDTH_PX &&
-                    CGFloat(asset.pixelHeight) == ViewController.IPHONE_X_HEIGHT_PX) ||
-                    (CGFloat(asset.pixelWidth) == ViewController.IPHONE_X_HEIGHT_PX &&
-                        CGFloat(asset.pixelHeight) == ViewController.IPHONE_X_WIDTH_PX)){
+                if ((CGFloat(asset.pixelWidth) == MyViewController.IPHONE_X_WIDTH_PX &&
+                    CGFloat(asset.pixelHeight) == MyViewController.IPHONE_X_HEIGHT_PX) ||
+                    (CGFloat(asset.pixelWidth) == MyViewController.IPHONE_X_HEIGHT_PX &&
+                        CGFloat(asset.pixelHeight) == MyViewController.IPHONE_X_WIDTH_PX)){
                     self.assets.append(asset)
                 }
                 
