@@ -55,7 +55,7 @@ class CustomPhotoAlbum {
      - Parameter image: The image to be saved
      */
     static func saveImage(image: UIImage, completionHandler: @escaping (Bool, Error?) -> Void) {
-        if (!fetchAssetCollectionForAlbum()) { // album not exist
+        if (!fetchAssetCollectionForAlbum()) { // album does not exist
             createAlbum(image: image, completionHandler: completionHandler)
             return
         }

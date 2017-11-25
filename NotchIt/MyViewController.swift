@@ -107,12 +107,14 @@ class MyViewController: UIViewController, UIPageViewControllerDataSource, PHPhot
     }
     
     func getPageVCContent(at: Int) -> MyPageViewContentController {
+        // if no photos
         if (contentVCs.isEmpty) {
             let newVC = self.storyboard?.instantiateViewController(
                 withIdentifier: "MyPageViewContentController") as! MyPageViewContentController
             return newVC
         }
         
+        // lazy init vc
         if (contentVCs[at] == nil) {
             let newVC = self.storyboard?.instantiateViewController(
                 withIdentifier: "MyPageViewContentController") as! MyPageViewContentController
